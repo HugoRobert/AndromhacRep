@@ -9,5 +9,8 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="home_label">Accueil</string>
     <string name="main_label">Chargement de l\'URL</string>
+    <string name="URL_text">La connectivité est active. Saisissez l\'URL à charger :</string>
+    <string name="load_btn_str">Charger</string>
+    <string name="twLoad_str">Chargement</string>
 
 </resources>
