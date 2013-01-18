@@ -28,7 +28,7 @@
         android:id="@+id/bAction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etURL"
+        android:layout_below="@+id/twLoad"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:text="@string/load_btn_str" />
@@ -37,7 +37,7 @@
         android:id="@+id/twLoad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bAction"
+        android:layout_below="@+id/etURL"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:text="@string/twLoad_str"

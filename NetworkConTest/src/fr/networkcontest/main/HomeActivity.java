@@ -1,6 +1,5 @@
 package fr.networkcontest.main;
 
-import fr.networkcontest.https.HttpsManager;
 import fr.networkcontest.main.R;
 import fr.networkcontest.main.MainActivity;
 import android.net.ConnectivityManager;

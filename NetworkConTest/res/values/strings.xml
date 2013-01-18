@@ -12,5 +12,8 @@
     <string name="URL_text">La connectivité est active. Saisissez l\'URL à charger :</string>
     <string name="load_btn_str">Charger</string>
     <string name="twLoad_str">Chargement</string>
+    <string name="title_activity_web_view">WebViewActivity</string>
+    <string name="webview_label">Affichage de l\'URL</string>
+    <string name="display_str">Afficher</string>
 
 </resources>
