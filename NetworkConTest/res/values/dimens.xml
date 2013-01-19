@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="test_dim">14pt</dimen>
+    <dimen name="url_dim">11pt</dimen>
+    <dimen name="url_dim_2">8pt</dimen>
+    <dimen name="textsize">12pt</dimen>
+    <dimen name="ttt">11pt</dimen>
+    <dimen name="test">10pt</dimen>
+    <dimen name="test2">9pt</dimen>
+</resources>

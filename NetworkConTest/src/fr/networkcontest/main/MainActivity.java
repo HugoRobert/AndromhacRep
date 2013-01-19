@@ -1,9 +1,14 @@
 package fr.networkcontest.main;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.net.URL;
 import java.security.KeyManagementException;
@@ -25,15 +30,18 @@ import fr.networkcontest.http.MyHttpClient;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements android.view.View.OnClickListener
 {
@@ -42,7 +50,7 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 	private EditText etUrl ;
 	private TextView twLoad ;
 	private TextView tw1 ;
-	private enum Action {LOAD, DISPLAY} ;
+	private enum Action {LOAD, ERROR, DISPLAY} ;
 	private Action m_action ;
 	private String m_htmlContent ;
 	
@@ -62,6 +70,7 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 		
 		//set l'event onClick des boutons de la vue
 		bAction.setOnClickListener(this) ;
+		etUrl.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
 		
 		m_action = Action.LOAD ;
 	}
@@ -90,19 +99,33 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 				// On essaye d'établir la connection Https
 				try {
 					m_htmlContent = new DownloadWebpageText().execute(strUrl).get();
+					if ( m_htmlContent == "Error" )
+					{
+						m_action = Action.ERROR;
+						// On remet le bouton (en changeant de texte) et on cache le chargement 
+						bAction.setVisibility(0) ;
+						bAction.setText("Retour") ;
+						tw1.setText("Le chargement de l'URL :") ;
+						twLoad.setText("a échoué") ;
+					}
+					else
+					{
+						// on sauvegarde les données dans un fichier
+						this.WriteDataInFile("content.html", m_htmlContent) ;
+						
+						// mise à jour
+						m_action = Action.DISPLAY;
+						// On remet le bouton (en changeant de texte) et on cache le chargement 
+						bAction.setVisibility(0) ;
+						bAction.setText(R.string.display_str) ;
+						tw1.setText("L'URL :") ;
+						twLoad.setText("a été chargé avec succès.") ;
+					}
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} catch (ExecutionException e) {
 					e.printStackTrace();
 				}
-				
-				m_action = Action.DISPLAY;
-				// On remet le bouton (en changeant de texte) et on cache le chargement 
-				bAction.setVisibility(0) ;
-				bAction.setText(R.string.display_str) ;
-				tw1.setText("L'URL :") ;
-				twLoad.setText("a été chargé avec succès.") ;
-				//twLoad.setVisibility(TextView.GONE) ;
 			}
 			else if ( m_action == Action.DISPLAY )
 			{
@@ -110,7 +133,53 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 				intent.putExtra("htmlContent", m_htmlContent) ;
 				startActivity(intent);
 			}
+			else if ( m_action == Action.ERROR )
+			{
+				m_action = Action.LOAD;
+				tw1.setText(R.string.URL_text) ;
+				twLoad.setVisibility(TextView.GONE) ;
+				bAction.setText(R.string.load_btn_str) ;
+			}
 		}
+	}
+	
+	private void WriteDataInFile(String fileName, String data)
+	{
+		FileOutputStream fOut = null ;
+		OutputStreamWriter osw = null;
+		
+		try {
+			fOut = /*getApplicationContext().*/openFileOutput(fileName, Context.MODE_APPEND) ;
+			osw = new OutputStreamWriter(fOut) ;
+			osw.write(data) ;
+			osw.flush() ;
+			Toast.makeText(getApplicationContext(), "Données Html correctement sauvegardéés", Toast.LENGTH_SHORT).show() ;
+		}
+		catch (Exception e) {
+			Toast.makeText(getApplicationContext(), "Données Html non sauvegardéés", Toast.LENGTH_SHORT).show() ;
+		}
+		finally { 
+            try { 
+            	osw.close(); 
+            	fOut.close(); 
+            } catch (IOException e) { 	
+            	Toast.makeText(getApplicationContext(), "Données Html non sauvegardéés", Toast.LENGTH_SHORT).show() ;
+            } 
+         }
+		/*File root = Environment.getExternalStorageDirectory();
+        File file = new File(root, fileName);
+        
+        try {
+            if (root.canWrite()){
+	            FileWriter filewriter = new FileWriter(file);
+	            BufferedWriter out = new BufferedWriter(filewriter);
+	            out.write(data);
+	            out.close();
+	            Toast.makeText(getApplicationContext(), "Données Html correctement sauvegardéés", Toast.LENGTH_SHORT).show() ;
+            }
+        } catch (IOException e) {
+        	Toast.makeText(getApplicationContext(), "Données Html non sauvegardéés", Toast.LENGTH_SHORT).show() ;
+        }*/
 	}
 	
 	
@@ -145,7 +214,7 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 		        content = response.getEntity().getContent();
 		        return StreamToString(content) ;
 		    } catch (Exception e) {
-		        return e.getMessage() ;
+		        return "Error" ;
 		    }
 		}
 		

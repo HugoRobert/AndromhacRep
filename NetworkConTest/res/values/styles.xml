@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -16,5 +16,45 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
+    
+    <!-- 
+    <style name="testTheme">
+        <item name="android:textColor">#3500FF</item>
+        <selector>
+            <item android:state_pressed="true">
+	            <shape android:shape="rectangle">
+	                <gradient android:startColor="#40FFE600"
+	            		android:centerColor="#60FFE600" android:endColor="#90FFE600"
+	            		android:angle="270" android:centerX="0.5" android:centerY="0.5" />
+	        		<stroke android:width="5dp" android:color="#50FF00DE" />
+	        		<corners android:radius="7dp" />
+	        		<padding android:left="10dp" android:top="6dp" android:right="10dp"
+	            		android:bottom="6dp" />
+	    		</shape>
+	    	</item>
+	    	<item android:state_focused="true">
+	            <shape>
+	                <gradient android:startColor="#40CB1759"
+	            		android:centerColor="#60CB1759" android:endColor="#90CB1759"
+	            		android:angle="270" android:centerX="0.5" android:centerY="0.5" />
+	        		<stroke android:width="5dp" android:color="#50ff0000" />
+	        		<corners android:radius="7dp" />
+	        		<padding android:left="10dp" android:top="6dp" android:right="10dp"
+	            		android:bottom="6dp" />
+	    		</shape>
+	    	</item>
+	    	<item>
+	            <shape>
+	                <gradient android:startColor="#402168D2"
+	            		android:centerColor="#602168D2" android:endColor="#902168D2"
+	            		android:angle="270" android:centerX="0.5" android:centerY="0.5" />
+	        		<stroke android:width="5dp" android:color="#50ff0000" />
+	        		<corners android:radius="7dp" />
+	        		<padding android:left="10dp" android:top="6dp" android:right="10dp"
+	            		android:bottom="6dp" />
+	    		</shape>
+	    	</item>
+        </selector>
+    </style>
+     -->
 </resources>

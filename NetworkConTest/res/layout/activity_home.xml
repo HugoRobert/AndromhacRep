@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".HomeActivity" >
 
     <Button
@@ -10,6 +11,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/launch_string" />
+        android:background="@drawable/button"
+        android:minHeight="100dp"
+        android:minWidth="200dp"
+        android:text="@string/launch_string"
+        android:textSize="@dimen/test_dim" />
 
 </RelativeLayout>
