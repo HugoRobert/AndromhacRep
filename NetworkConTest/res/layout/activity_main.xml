@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/pitch_black"
     tools:context=".MainActivity" >
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginTop="50dp"
         android:text="@string/URL_text"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text_color" />
+        android:textColor="@color/white_opaque" />
 
     <EditText
         android:id="@+id/etURL"
@@ -27,24 +27,24 @@
         android:layout_marginRight="5dp"
         android:layout_marginTop="30dp"
         android:autoText="false"
-        android:background="@drawable/urledittext"
+        android:background="@drawable/urledittext2"
         android:ems="10"
         android:fadingEdge="horizontal|vertical"
         android:fitsSystemWindows="false"
-        android:textColor="@color/Url_text_color"
+        android:textColor="@color/utl_black"
         android:textColorLink="@color/Url_underline_color"
         android:textSize="@dimen/url_dim_2"
         android:typeface="sans" />
 
     <Button
         android:id="@+id/bAction"
-        style="@drawable/button"
+        style="@drawable/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/twLoad"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:background="@drawable/button"
+        android:background="@drawable/button2"
         android:text="@string/load_btn_str" />
 
     <TextView
@@ -56,7 +56,7 @@
         android:layout_marginTop="50dp"
         android:text="@string/twLoad_str"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/text_color"
+        android:textColor="@color/white_opaque"
         android:textSize="@dimen/test2" />
 
 </RelativeLayout>

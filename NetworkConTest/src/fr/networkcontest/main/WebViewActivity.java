@@ -1,6 +1,7 @@
 package fr.networkcontest.main;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import android.os.Bundle;
@@ -46,14 +47,14 @@ public class WebViewActivity extends Activity {
         catch (Exception e) {       
         	Toast.makeText(getApplicationContext(), "Données Html non chargées", Toast.LENGTH_SHORT).show() ;
         } 
-        /*finally { 
+        finally { 
            try { 
                   isr.close(); 
                   fIn.close(); 
                   } catch (IOException e) { 
-                    Toast.makeText(context, "Settings not read",Toast.LENGTH_SHORT).show(); 
+                    Toast.makeText(getApplicationContext(), "Données Html non chargées",Toast.LENGTH_SHORT).show(); 
                   } 
-        } */
+        }
             return data; 
        }
 

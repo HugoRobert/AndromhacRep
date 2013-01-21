@@ -15,7 +15,10 @@ public final class R {
         public static final int Url_underline_color=0x7f050001;
         public static final int background=0x7f050002;
         public static final int background2=0x7f050003;
+        public static final int pitch_black=0x7f050006;
         public static final int text_color=0x7f050004;
+        public static final int utl_black=0x7f050007;
+        public static final int white_opaque=0x7f050005;
     }
     public static final class dimen {
         public static final int test=0x7f060005;
@@ -28,8 +31,10 @@ public final class R {
     }
     public static final class drawable {
         public static final int button=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int urledittext=0x7f020002;
+        public static final int button2=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int urledittext=0x7f020003;
+        public static final int urledittext2=0x7f020004;
     }
     public static final class id {
         public static final int bAction=0x7f0a0003;
@@ -52,7 +57,6 @@ public final class R {
     }
     public static final class raw {
         public static final int mykestore=0x7f040000;
-        public static final int mykeystore2=0x7f040001;
     }
     public static final class string {
         public static final int URL_text=0x7f070008;
@@ -97,5 +101,7 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
+        public static final int AppTheme2=0x7f080002;
+        public static final int MainTheme=0x7f080003;
     }
 }

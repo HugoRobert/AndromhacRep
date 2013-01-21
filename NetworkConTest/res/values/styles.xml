@@ -17,6 +17,18 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
+    <style name="AppTheme2" parent="android:Theme.Light">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+      	<item name="android:windowBackground">@color/white_opaque</item>
+      	<item name="android:colorBackground">@color/white_opaque</item>
+      	<item name="android:textColor">@color/pitch_black</item>
+    </style>
+    
+    <style name="MainTheme" parent="android:Theme.Light">
+      	<item name="android:textColor">@color/white_opaque</item>
+    </style>
+    
     <!-- 
     <style name="testTheme">
         <item name="android:textColor">#3500FF</item>

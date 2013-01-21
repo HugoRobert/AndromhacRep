@@ -5,4 +5,7 @@
     <color name="background">#FFFFCC</color>
     <color name="background2">#C8C8C8</color>
     <color name="text_color">#000032</color>
+    <color name="white_opaque">#FFFFFF</color>
+    <color name="pitch_black">#000000</color>
+    <color name="utl_black">#A0000000</color>
 </resources>

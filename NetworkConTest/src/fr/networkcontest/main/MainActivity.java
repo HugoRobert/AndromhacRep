@@ -149,14 +149,14 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 		OutputStreamWriter osw = null;
 		
 		try {
-			fOut = /*getApplicationContext().*/openFileOutput(fileName, Context.MODE_APPEND) ;
+			fOut = openFileOutput(fileName, Context.MODE_APPEND) ;
 			osw = new OutputStreamWriter(fOut) ;
 			osw.write(data) ;
 			osw.flush() ;
-			Toast.makeText(getApplicationContext(), "Données Html correctement sauvegardéés", Toast.LENGTH_SHORT).show() ;
+			Toast.makeText(getApplicationContext(), "Données Html correctement sauvegardées", Toast.LENGTH_SHORT).show() ;
 		}
 		catch (Exception e) {
-			Toast.makeText(getApplicationContext(), "Données Html non sauvegardéés", Toast.LENGTH_SHORT).show() ;
+			Toast.makeText(getApplicationContext(), "Données Html non sauvegardées", Toast.LENGTH_SHORT).show() ;
 		}
 		finally { 
             try { 
@@ -166,20 +166,6 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
             	Toast.makeText(getApplicationContext(), "Données Html non sauvegardéés", Toast.LENGTH_SHORT).show() ;
             } 
          }
-		/*File root = Environment.getExternalStorageDirectory();
-        File file = new File(root, fileName);
-        
-        try {
-            if (root.canWrite()){
-	            FileWriter filewriter = new FileWriter(file);
-	            BufferedWriter out = new BufferedWriter(filewriter);
-	            out.write(data);
-	            out.close();
-	            Toast.makeText(getApplicationContext(), "Données Html correctement sauvegardéés", Toast.LENGTH_SHORT).show() ;
-            }
-        } catch (IOException e) {
-        	Toast.makeText(getApplicationContext(), "Données Html non sauvegardéés", Toast.LENGTH_SHORT).show() ;
-        }*/
 	}
 	
 	
