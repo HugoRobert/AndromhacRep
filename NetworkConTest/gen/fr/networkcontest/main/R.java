@@ -21,6 +21,7 @@ public final class R {
         public static final int white_opaque=0x7f050005;
     }
     public static final class dimen {
+        public static final int launch_dim=0x7f060007;
         public static final int test=0x7f060005;
         public static final int test2=0x7f060006;
         public static final int test_dim=0x7f060000;

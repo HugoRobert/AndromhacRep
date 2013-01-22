@@ -7,4 +7,5 @@
     <dimen name="ttt">11pt</dimen>
     <dimen name="test">10pt</dimen>
     <dimen name="test2">9pt</dimen>
+    <dimen name="launch_dim">11pt</dimen>
 </resources>

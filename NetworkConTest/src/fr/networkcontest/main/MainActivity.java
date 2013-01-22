@@ -132,6 +132,13 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 				Intent intent = new Intent(this, WebViewActivity.class);
 				intent.putExtra("htmlContent", m_htmlContent) ;
 				startActivity(intent);
+
+				// mise à jour
+				m_action = Action.LOAD;
+				// On remet le bouton (en changeant de texte) et on cache le chargement 
+				bAction.setText(R.string.URL_text) ;
+				twLoad.setVisibility(TextView.GONE) ;
+				bAction.setText(R.string.load_btn_str) ;
 			}
 			else if ( m_action == Action.ERROR )
 			{
@@ -149,7 +156,7 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 		OutputStreamWriter osw = null;
 		
 		try {
-			fOut = openFileOutput(fileName, Context.MODE_APPEND) ;
+			fOut = openFileOutput(fileName, Context.MODE_PRIVATE) ;
 			osw = new OutputStreamWriter(fOut) ;
 			osw.write(data) ;
 			osw.flush() ;

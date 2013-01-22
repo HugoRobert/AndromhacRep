@@ -45,7 +45,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@drawable/button2"
-        android:text="@string/load_btn_str" />
+        android:text="@string/load_btn_str"
+        android:textSize="@dimen/launch_dim" />
 
     <TextView
         android:id="@+id/twLoad"

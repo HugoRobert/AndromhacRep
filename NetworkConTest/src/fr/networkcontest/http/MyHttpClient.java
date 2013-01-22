@@ -42,18 +42,18 @@ public class MyHttpClient extends DefaultHttpClient
 	 {
 		 try {
 			 // On obtient une instance de notre KeyStore
-			 KeyStore trusted = KeyStore.getInstance("BKS");
+			 KeyStore trusted = null;/*KeyStore.getInstance("BKS");
 			 InputStream in = context.getResources().openRawResource(R.raw.mykestore);
 			 try {
 				 // Initialisation de notre keystore. On entre le mot de passe (storepass)
 				 trusted.load(in, "HugoRobert".toCharArray());
 			 } finally {
 				 in.close();
-			 }
+			 }*/
 
 			 // Passons le keystore au SSLSocketFactory qui est responsable de la verification du certificat
 			 SSLSocketFactory sf = new SSLSocketFactory(trusted);
-			 sf.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+			 sf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);//STRICT_HOSTNAME_VERIFIER);
 			 return sf;
 		 } catch (Exception e) {
 			 throw new AssertionError(e);
